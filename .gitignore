@@ -31,3 +31,134 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Application logs ###
+*.log
+logs/
+application.log
+
+### Database ###
+*.db
+*.sqlite
+*.sqlite3
+
+### Environment files ###
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+### Generated files ###
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### OS generated files ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+### Temporary files ###
+*.tmp
+*.temp
+*~
+
+### Maven ###
+.mvn/
+mvnw
+mvnw.cmd
+
+### Spring Boot ###
+application-*.properties
+application-*.yml
+*.pid
+
+### Security and sensitive files ###
+secrets/
+*.key
+*.pem
+*.p12
+*.jks
+*.keystore
+
+### Backup files ###
+*.bak
+*.backup
+*.old
+
+### Node.js (if used for frontend) ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Docker ###
+docker-compose.override.yml
+.dockerignore
+
+### Local configuration ###
+config/local/
+*.local
+local.properties
+
+### Compiled class files ###
+*.class
+
+### Package Files ###
+*.jar
+!lib/*.jar
+
+### JVM crash logs ###
+hs_err_pid*
+
+### Eclipse ###
+.metadata/
+
+### System files ###
+*.swp
+*.swo
+
+### Additional Spring Boot/Java ###
+*.hprof
+*.dump
+*.bin
+*.out
+
+### IDE specific ###
+.settings/
+.project
+.classpath
+*.launch
+.recommenders/
+
+### Build outputs ###
+/build/
+/out/
+/classes/
+
+### Test outputs ###
+test-output/
+test-results/
+**/target/surefire-reports/
+**/target/failsafe-reports/
+
+### Database connections ###
+datasource.properties
+database.properties
+
+### Local development ###
+application-local.properties
+application-dev.properties
+bootstrap-local.yml
+
+### GitHub specific ###
+.github/workflows/secrets.yml
