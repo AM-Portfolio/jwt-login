@@ -1,27 +1,49 @@
 package com.myportfolio.jwtlogin.util;
 
-import io.jsonwebtoken.Claims;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
-public class JwtUtilTest {
+import java.util.ArrayList;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+class JwtUtilTest {
+
+    private JwtUtil jwtUtil;
+    private UserDetails userDetails;
+
+    @BeforeEach
+    void setUp() {
+        jwtUtil = new JwtUtil();
+        userDetails = new User("testuser", "password", new ArrayList<>());
+    }
 
     @Test
-    public void testJwtValidation() {
-        String jwt =
-"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhYmM3IiwiaWF0IjoxNzU4MDE3Njk4LCJleHAiOjE3NTgwMzU2OTh9.XOkRWCW7cQ5lE_eOHsHHoEVLLsH8PTqhQWlDxuT0qa3Unit5cYa9ZQEXZeUi-UbPLDtAPG56GyvqhIs29e3xoA";
+    void testGenerateToken() {
+        String token = jwtUtil.generateToken(userDetails);
+        assertNotNull(token);
+        assertFalse(token.isEmpty());
+    }
 
-        try {
-            Claims claims = JwtUtil.verifyToken(jwt);
-            if (claims != null) {
-                System.out.println("✅ Token is valid");
-                System.out.println("Subject: " + claims.getSubject());
-                System.out.println("Issued At: " + claims.getIssuedAt());
-                System.out.println("Expiration: " + claims.getExpiration());
-            } else {
-                System.out.println("❌ Invalid token: claims is null");
-            }
-        } catch (Exception e) {
-            System.out.println("❌ Invalid token: " + e.getMessage());
-        }
+    @Test
+    void testExtractUsername() {
+        String token = jwtUtil.generateToken(userDetails);
+        String username = jwtUtil.extractUsername(token);
+        assertEquals("testuser", username);
+    }
+
+    @Test
+    void testValidateToken() {
+        String token = jwtUtil.generateToken(userDetails);
+        boolean isValid = jwtUtil.validateToken(token, userDetails);
+        assertTrue(isValid);
+    }
+
+    @Test
+    void testTokenExpiration() {
+        String token = jwtUtil.generateToken(userDetails);
+        assertNotNull(jwtUtil.extractExpiration(token));
     }
 }

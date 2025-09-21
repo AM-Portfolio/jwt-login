@@ -1,14 +1,13 @@
 package com.myportfolio.jwtlogin.entity;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class JwtResponse {
-
-    private User user;
-    private String jwtToken;
+    private String token;
+    private String username;
 }

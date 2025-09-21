@@ -33,6 +33,7 @@ public class UserController {
         return "This URL is only accessible to the admin";
     }
 
+
     @GetMapping({"/forUser"})
     @PreAuthorize("hasRole('ROLE_USER')")
     public String forUser(){

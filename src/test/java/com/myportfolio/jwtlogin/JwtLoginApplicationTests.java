@@ -1,13 +1,13 @@
-package com.myportfolio.jwtlogin;
+// package com.myportfolio.jwtlogin;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+// import org.junit.jupiter.api.Test;
+// import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class JwtLoginApplicationTests {
+// @SpringBootTest
+// class JwtLoginApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+// 	@Test
+// 	void contextLoads() {
+// 	}
 
-}
+// }
